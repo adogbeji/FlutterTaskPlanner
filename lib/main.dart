@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:task_planner/views/tasks.dart';
+import 'package:task_planner/views/widgets/tasks.dart';
 
 void main() {
   runApp(const MyApp());
