@@ -7,9 +7,13 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Start Screen'),
+    return const Center(
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Task Planner', style: TextStyle(fontSize: 24,),),
+        ],
       ),
     );
   }

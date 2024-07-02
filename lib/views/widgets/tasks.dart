@@ -19,12 +19,10 @@ class _TasksState extends State<Tasks> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidget = StartScreen(onStartTasks: switchScreen,);
+    var screenWidget = StartScreen(onStartTasks: switchScreen);
 
-    return const Scaffold(
-      body: Center(
-        child: Text('Tasks'),
-      ),
+    return Scaffold(
+      body: screenWidget,
     );
   }
 }
