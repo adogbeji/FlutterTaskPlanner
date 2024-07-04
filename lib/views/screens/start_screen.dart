@@ -18,19 +18,35 @@ class StartScreen extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: const Center(
+      child: Center(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Task Planner', style: TextStyle(fontSize: 24,),),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.arrow_forward),
-                Text('Start'),
-              ],
+            const Text(
+              'Task Planner',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.yellow,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+
+            const SizedBox(height: 12,),
+
+            OutlinedButton.icon(
+              onPressed: () {},
+              // style: OutlinedButton.styleFrom(
+              //   foregroundColor: Colors.white,
+              // ),
+              label: const Text(
+                'Start',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+              icon: const Icon(
+                Icons.arrow_right_alt,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
