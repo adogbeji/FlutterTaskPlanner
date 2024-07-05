@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_planner/views/screens/start_screen.dart';
+import 'package:task_planner/views/screens/tasks_screen.dart';
 
 class Tasks extends StatefulWidget {
   const Tasks({super.key});
@@ -19,7 +20,11 @@ class _TasksState extends State<Tasks> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidget = StartScreen(onStartTasks: switchScreen);
+    Widget screenWidget = StartScreen(onStartTasks: switchScreen);
+
+    if (activeScreen == 'tasks-screen') {
+      screenWidget = TasksScreen();
+    }
 
     return Scaffold(
       body: screenWidget,

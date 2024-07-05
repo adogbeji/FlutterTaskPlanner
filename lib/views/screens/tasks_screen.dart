@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TaskScreen extends StatelessWidget {
-  const TaskScreen({super.key});
+class TasksScreen extends StatelessWidget {
+  const TasksScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: Text('Task Planner'),
+        actions: [Icon(Icons.add,),],
+      ),
       body: Center(
         child: Text('Tasks Screen'),
       ),
