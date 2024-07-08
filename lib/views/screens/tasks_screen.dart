@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:task_planner/models/task.dart';
 
 class TasksScreen extends StatefulWidget {
-  const TasksScreen({super.key});
+  const TasksScreen({required this.tasks, required this.onRemoveTask, super.key});
+
+  final List<Task> tasks;
+  final void Function(Task task) onRemoveTask;
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
