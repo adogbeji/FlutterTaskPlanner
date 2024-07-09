@@ -30,7 +30,15 @@ class _TasksState extends State<Tasks> {
     });
   }
 
-  void _removeTask(Task task) {}
+  // Removes Task
+  void _removeTask(Task task) {
+    final taskIndex = _registeredTasks.indexOf(task);  // Index value of task
+
+    setState(() {
+      _registeredTasks.remove(task);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();  // Removes all existing info messages ("snack bars")
+  }
 
   @override
   Widget build(BuildContext context) {
