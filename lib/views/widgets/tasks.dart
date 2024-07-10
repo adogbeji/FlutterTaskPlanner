@@ -38,6 +38,20 @@ class _TasksState extends State<Tasks> {
       _registeredTasks.remove(task);
     });
     ScaffoldMessenger.of(context).clearSnackBars();  // Removes all existing info messages ("snack bars")
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Task Removed!'),
+        action: SnackBarAction(
+          onPressed: () {
+            setState(() {
+              _registeredTasks.insert(taskIndex, task);  // Brings bck deleted task
+            });
+          },
+          label: 'Undo',
+        ),
+      )
+    );
   }
 
   @override
