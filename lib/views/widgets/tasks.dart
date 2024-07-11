@@ -45,7 +45,7 @@ class _TasksState extends State<Tasks> {
         action: SnackBarAction(
           onPressed: () {
             setState(() {
-              _registeredTasks.insert(taskIndex, task);  // Brings bck deleted task
+              _registeredTasks.insert(taskIndex, task);  // Brings back deleted task
             });
           },
           label: 'Undo',
