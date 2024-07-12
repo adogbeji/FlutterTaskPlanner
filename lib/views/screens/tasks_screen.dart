@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:task_planner/models/task.dart';
+
+import 'package:task_planner/views/widgets/new_task.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({required this.tasks, required this.onRemoveTask, super.key});
@@ -13,12 +16,7 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   void _openModal() {
-    showModalBottomSheet(context: context, builder: (ctx) {
-      return Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text('Modal'),
-      );
-    });
+    showModalBottomSheet(context: context, builder: (ctx) => NewTask(),);
   }
 
   @override
