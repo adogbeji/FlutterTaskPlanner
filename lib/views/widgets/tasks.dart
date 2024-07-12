@@ -59,7 +59,7 @@ class _TasksState extends State<Tasks> {
     Widget screenWidget = StartScreen(onStartTasks: switchScreen);
 
     if (activeScreen == 'tasks-screen') {
-      screenWidget = TasksScreen(tasks: _registeredTasks, onRemoveTask: _removeTask,);
+      screenWidget = TasksScreen(tasks: _registeredTasks, onAddTask: _addTask, onRemoveTask: _removeTask,);
     }
 
     return Scaffold(

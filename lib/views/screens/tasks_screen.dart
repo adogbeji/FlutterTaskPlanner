@@ -5,9 +5,10 @@ import 'package:task_planner/models/task.dart';
 import 'package:task_planner/views/widgets/new_task.dart';
 
 class TasksScreen extends StatefulWidget {
-  const TasksScreen({required this.tasks, required this.onRemoveTask, super.key});
+  const TasksScreen({required this.tasks, required this.onAddTask, required this.onRemoveTask, super.key});
 
   final List<Task> tasks;
+  final void Function(Task task) onAddTask;
   final void Function(Task task) onRemoveTask;
 
   @override
@@ -16,7 +17,7 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   void _openModal() {
-    showModalBottomSheet(context: context, builder: (ctx) => NewTask(),);
+    showModalBottomSheet(context: context, builder: (ctx) => NewTask(onAddTask: widget.onAddTask,),);
   }
 
   @override
