@@ -11,11 +11,31 @@ class NewTask extends StatefulWidget {
 }
 
 class _NewTaskState extends State<NewTask> {
+  final _nameController = TextEditingController();
+  final _priceController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _priceController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
-      child: Text('New Task'),
+      padding: const EdgeInsets.all(8),
+      child: Column(
+        children: [
+          TextField(
+            controller: _nameController,
+            decoration: InputDecoration(
+              labelText: 'Name',
+              hintText: 'Enter task name...',
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
