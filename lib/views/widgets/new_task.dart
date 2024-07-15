@@ -29,10 +29,17 @@ class _NewTaskState extends State<NewTask> {
         children: [
           TextField(
             controller: _nameController,
+            maxLength: 50,
             decoration: InputDecoration(
               labelText: 'Name',
               hintText: 'Enter task name...',
             ),
+          ),
+
+          Row(
+            children: [
+              Expanded(child: TextField(),),
+            ],
           ),
         ],
       ),
