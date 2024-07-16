@@ -30,7 +30,7 @@ class _NewTaskState extends State<NewTask> {
           TextField(
             controller: _nameController,
             maxLength: 50,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Name',
               hintText: 'Enter task name...',
             ),
@@ -38,7 +38,11 @@ class _NewTaskState extends State<NewTask> {
 
           Row(
             children: [
-              Expanded(child: TextField(),),
+              Text('No date selected'),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.calendar_month),
+              ),
             ],
           ),
         ],
