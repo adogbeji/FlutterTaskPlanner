@@ -13,14 +13,24 @@ class NewTask extends StatefulWidget {
 class _NewTaskState extends State<NewTask> {
   final _nameController = TextEditingController();
   final _priceController = TextEditingController();
+  DateTime? _selectedDate;
 
   // Shows Datepicker
-  void _openDatePicker() {
+  Future<void> _openDatePicker()  async {
     final today = DateTime.now();
     final defaultDate = DateTime(today.year, today.month, today.day);
     final firstDate = DateTime(today.year - 1, today.month, today.day);
     final lastDate = DateTime(today.year, today.month, today.day + 7);
-    // showDatePicker(context: context, firstDate: firstDate, lastDate: lastDate)
+
+    final pickedDate = await showDatePicker(
+      context: context, 
+      initialDate: defaultDate,
+      firstDate: firstDate, 
+      lastDate: lastDate
+    );
+    setState(() {
+      _selectedDate = pickedDate;
+    });
   }
 
   @override
@@ -49,7 +59,7 @@ class _NewTaskState extends State<NewTask> {
             children: [
               Text('No date selected'),
               IconButton(
-                onPressed: () {},
+                onPressed: _openDatePicker,
                 icon: Icon(Icons.calendar_month),
               ),
             ],
