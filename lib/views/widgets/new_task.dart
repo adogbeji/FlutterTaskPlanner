@@ -13,6 +13,7 @@ class NewTask extends StatefulWidget {
 class _NewTaskState extends State<NewTask> {
   final _nameController = TextEditingController();
   final _priceController = TextEditingController();
+  Category _selectedCategory = Category.leisure;
   DateTime? _selectedDate;
 
   // Shows Datepicker
@@ -57,10 +58,33 @@ class _NewTaskState extends State<NewTask> {
 
           Row(
             children: [
-              Text('No date selected'),
+              Text(_selectedDate != null ? formatter.format(_selectedDate!): 
+                'No date selected'
+              ),
               IconButton(
                 onPressed: _openDatePicker,
-                icon: Icon(Icons.calendar_month),
+                icon: const Icon(Icons.calendar_month),
+              ),
+            ],
+          ),
+
+          Row(
+            children: [
+              DropdownButton(
+                value: _selectedCategory,
+                items: Category.values
+                        .map((category) => DropdownMenuItem(
+                          value: category,
+                          child: Text(category.name.toUpperCase(),),
+                        ),).toList(),
+                onChanged: (value) {
+                  if (value == null) {
+                    return;
+                  }
+                  setState(() {
+                    _selectedCategory = value;
+                  });
+                },
               ),
             ],
           ),
