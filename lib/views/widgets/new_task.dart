@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:task_planner/models/task.dart';
 
 class NewTask extends StatefulWidget {
@@ -58,8 +59,8 @@ class _NewTaskState extends State<NewTask> {
 
           Row(
             children: [
-              Text(_selectedDate != null ? formatter.format(_selectedDate!): 
-                'No date selected'
+              Text(_selectedDate == null ?
+                'No date selected!': formatter.format(_selectedDate!),
               ),
               IconButton(
                 onPressed: _openDatePicker,
@@ -72,11 +73,10 @@ class _NewTaskState extends State<NewTask> {
             children: [
               DropdownButton(
                 value: _selectedCategory,
-                items: Category.values
-                        .map((category) => DropdownMenuItem(
-                          value: category,
-                          child: Text(category.name.toUpperCase(),),
-                        ),).toList(),
+                items: Category.values.map((category) => DropdownMenuItem(
+                  value: category,
+                  child: Text(category.name.toUpperCase(),),
+                ),).toList(),
                 onChanged: (value) {
                   if (value == null) {
                     return;
