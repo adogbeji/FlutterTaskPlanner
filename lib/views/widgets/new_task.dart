@@ -86,6 +86,18 @@ class _NewTaskState extends State<NewTask> {
                   });
                 },
               ),
+
+              const Spacer(),
+
+              TextButton(
+                onPressed: () {},
+                child: const Text('Cancel'),
+              ),
+              ElevatedButton(onPressed: () {}, 
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purpleAccent.shade100,
+              ),
+              child: Text('Save'),),
             ],
           ),
         ],
