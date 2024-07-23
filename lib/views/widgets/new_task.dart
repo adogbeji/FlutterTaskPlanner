@@ -34,6 +34,15 @@ class _NewTaskState extends State<NewTask> {
       _selectedDate = pickedDate;
     });
   }
+  
+  // Saves new tasks
+  void _addNewTask() {
+    final enteredPrice = double.tryParse(_priceController.text);
+    final priceIsInvalid = enteredPrice == null || enteredPrice >= 0;
+    if (_nameController.text.trim().isEmpty || priceIsInvalid || _selectedDate == null) {
+      // Show error message below
+    }
+  }
 
   @override
   void dispose() {
