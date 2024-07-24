@@ -38,9 +38,16 @@ class _NewTaskState extends State<NewTask> {
   // Saves new tasks
   void _addNewTask() {
     final enteredPrice = double.tryParse(_priceController.text);
-    final priceIsInvalid = enteredPrice == null || enteredPrice >= 0;
+    final priceIsInvalid = enteredPrice == null || enteredPrice <= 0;
     if (_nameController.text.trim().isEmpty || priceIsInvalid || _selectedDate == null) {
       // Show error message below
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('Invalid Input!'),
+          content: Text('Please enter a valid name, date & category'),
+        ),
+      );
     }
   }
 
