@@ -58,6 +58,16 @@ class _NewTaskState extends State<NewTask> {
       );
       return;  // stops function execution
     }
+
+    widget.onAddTask(
+      Task(
+        title: _nameController.text, 
+        date: _selectedDate!, 
+        category: _selectedCategory,
+      ),
+    );
+
+    Navigator.pop(context);  // Closes dialog
   }
 
   @override
