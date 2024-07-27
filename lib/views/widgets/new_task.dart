@@ -13,7 +13,7 @@ class NewTask extends StatefulWidget {
 
 class _NewTaskState extends State<NewTask> {
   final _nameController = TextEditingController();
-  final _priceController = TextEditingController();
+  // final _priceController = TextEditingController();
   Category _selectedCategory = Category.leisure;
   DateTime? _selectedDate;
 
@@ -37,9 +37,14 @@ class _NewTaskState extends State<NewTask> {
   
   // Saves new tasks
   void _addNewTask() {
-    final enteredPrice = double.tryParse(_priceController.text);
-    final priceIsInvalid = enteredPrice == null || enteredPrice <= 0;
-    if (_nameController.text.trim().isEmpty || priceIsInvalid || _selectedDate == null) {
+    // final enteredPrice = double.tryParse(_priceController.text);
+    // final priceIsInvalid = enteredPrice == null || enteredPrice <= 0;
+
+    print(_nameController.text);
+    // print(_priceController.text);
+    print(_selectedDate);
+
+    if (_nameController.text.trim().isEmpty || _selectedDate == null) {
       // Show error message below
       showDialog(
         context: context,
@@ -73,7 +78,7 @@ class _NewTaskState extends State<NewTask> {
   @override
   void dispose() {
     _nameController.dispose();
-    _priceController.dispose();
+    // _priceController.dispose();
     super.dispose();
   }
 
@@ -128,7 +133,7 @@ class _NewTaskState extends State<NewTask> {
                 onPressed: () {},
                 child: const Text('Cancel'),
               ),
-              ElevatedButton(onPressed: () {}, 
+              ElevatedButton(onPressed: _addNewTask, 
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purpleAccent.shade100,
               ),
