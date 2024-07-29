@@ -34,7 +34,10 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
         ],
       ),
-      body: Center(
+      body: widget.tasks.isEmpty ? Center(
+        child: Text('No Tasks Added!'),
+      ):
+       Center(
         child: Text('Tasks Screen'),
       ),
     );

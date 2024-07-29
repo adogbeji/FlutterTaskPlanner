@@ -58,9 +58,19 @@ class _TasksState extends State<Tasks> {
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(onStartTasks: switchScreen);
 
+    // if (activeScreen == 'tasks-screen' && _registeredTasks.isNotEmpty) {
+    //   screenWidget = TasksScreen(tasks: _registeredTasks, onAddTask: _addTask, onRemoveTask: _removeTask,);
+    // }
+
     if (activeScreen == 'tasks-screen') {
       screenWidget = TasksScreen(tasks: _registeredTasks, onAddTask: _addTask, onRemoveTask: _removeTask,);
     }
+
+    // if (activeScreen == 'tasks-screen' && _registeredTasks.isEmpty) {
+    //   screenWidget = const Center(
+    //     child: Text('No Tasks Added!'),
+    //   );
+    // }
 
     return Scaffold(
       body: screenWidget,
