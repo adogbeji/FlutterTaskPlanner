@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:task_planner/models/task.dart';
+import 'package:task_planner/views/widgets/task_item.dart';
 
 class TasksLists extends StatelessWidget {
   const TasksLists({super.key, required this.tasks, required this.onRemoveTask});
@@ -10,10 +11,8 @@ class TasksLists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Tasks List'),
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) => TaskItem(tasks[index]),
     );
   }
 }

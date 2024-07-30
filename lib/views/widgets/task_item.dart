@@ -12,6 +12,12 @@ class TaskItem extends StatelessWidget {
       child: Column(
         children: [
           Text(task.title),
+          Row(
+            children: [
+              Icon(categoryIcons[task.category]),
+              Text(task.formattedDate),
+            ],
+          ),
         ],
       ),
     );
