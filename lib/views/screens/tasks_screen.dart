@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:task_planner/models/task.dart';
 
 import 'package:task_planner/views/widgets/new_task.dart';
+import 'package:task_planner/views/widgets/tasks_list.dart';
 
 class TasksScreen extends StatefulWidget {
   const TasksScreen({required this.tasks, required this.onAddTask, required this.onRemoveTask, super.key});
@@ -37,9 +38,11 @@ class _TasksScreenState extends State<TasksScreen> {
       body: widget.tasks.isEmpty ? Center(
         child: Text('No Tasks Added!'),
       ):
-       Center(
-        child: Text('Tasks Screen'),
-      ),
+      //  Center(
+      //   child: Text('Tasks Screen'),
+      // ),
+
+      TasksLists(tasks: widget.tasks, onRemoveTask: widget.onRemoveTask),
     );
   }
 }
