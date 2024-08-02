@@ -15,6 +15,11 @@ class TasksLists extends StatelessWidget {
     return ListView.builder(
       itemCount: tasks.length,
       itemBuilder: (context, index) => Dismissible(
+        background: Container(
+          decoration: BoxDecoration(
+            color: Colors.orange,
+          ),
+        ),
         key: ValueKey(tasks[index]),
         onDismissed:(direction) {
           onRemoveTask(tasks[index]);
